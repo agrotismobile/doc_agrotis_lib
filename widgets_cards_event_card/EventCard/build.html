@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the build method from the EventCard class, for the Dart programming language.">
+  <title>build method - EventCard class - event_card library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../../static-assets/styles.css?v1">
+  <link rel="icon" href="../../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../../index.html">agrotis_widget_lib</a></li>
+    <li><a href="../../widgets_cards_event_card/widgets_cards_event_card-library.html">event_card</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard-class.html">EventCard</a></li>
+    <li class="self-crumb">build method</li>
+  </ol>
+  <div class="self-name">build</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-method">build</span> method 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+</h1></div>
+
+    <section class="multi-line-signature">
+      
+<div>
+  <ol class="annotation-list">
+    <li>@<a href="https://api.flutter.dev/flutter/dart-core/override-constant.html">override</a></li>
+  </ol>
+</div>
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/widgets/Widget-class.html">Widget</a></span>
+<span class="name ">build</span>(<wbr><ol class="parameter-list"><li><span class="parameter" id="build-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span></span></li>
+</ol>)
+
+      <div class="features">override</div>
+
+    </section>
+    
+<section class="desc markdown">
+  <p>Describes the part of the user interface represented by this widget.</p>
+<p>The framework calls this method when this widget is inserted into the tree
+in a given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> and when the dependencies of this widget change
+(e.g., an <a href="https://api.flutter.dev/flutter/widgets/InheritedWidget-class.html">InheritedWidget</a> referenced by this widget changes). This
+method can potentially be called in every frame and should not have any side
+effects beyond building a widget.</p>
+<p>The framework replaces the subtree below this widget with the widget
+returned by this method, either by updating the existing subtree or by
+removing the subtree and inflating a new subtree, depending on whether the
+widget returned by this method can update the root of the existing
+subtree, as determined by calling <a href="https://api.flutter.dev/flutter/widgets/Widget/canUpdate.html">Widget.canUpdate</a>.</p>
+<p>Typically implementations return a newly created constellation of widgets
+that are configured with information from this widget's constructor and
+from the given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>.</p>
+<p>The given <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a> contains information about the location in the
+tree at which this widget is being built. For example, the context
+provides the set of inherited widgets for this location in the tree. A
+given widget might be built with multiple different <a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a>
+arguments over time if the widget is moved around the tree or if the
+widget is inserted into the tree in multiple places at once.</p>
+<p>The implementation of this method must only depend on:</p>
+<ul>
+<li>the fields of the widget, which themselves must not change over time,
+and</li>
+<li>any ambient state obtained from the <code>context</code> using
+<a href="https://api.flutter.dev/flutter/widgets/BuildContext/dependOnInheritedWidgetOfExactType.html">BuildContext.dependOnInheritedWidgetOfExactType</a>.</li>
+</ul>
+<p>If a widget's <a href="../../widgets_cards_event_card/EventCard/build.html">build</a> method is to depend on anything else, use a
+<a href="https://api.flutter.dev/flutter/widgets/StatefulWidget-class.html">StatefulWidget</a> instead.</p>
+<p>See also:</p>
+<ul>
+<li><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget-class.html">StatelessWidget</a>, which contains the discussion on performance considerations.</li>
+</ul>
+</section>
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">@override
+Widget build(BuildContext context) {
+  return Container(
+    decoration: BoxDecoration(
+      color: index % 2 == 0 ? AppColors.neutral.light : Colors.white,
+      border: const Border(
+        bottom: BorderSide(color: Color(0xffE8E8E8)),
+        top: BorderSide(color: Color(0xffE8E8E8)),
+      ),
+    ),
+    child: InkWell(
+      onTap: onTap,
+      child: IntrinsicHeight(
+        child: SizedBox(
+          width: MediaQuery.of(context).size.width,
+          child: Row(
+            children: [
+              Expanded(
+                child: LeadingCardWidget(
+                  dateEvent: dateEvent,
+                  hasAudio: hasAudio,
+                  hasImage: hasImage,
+                ),
+              ),
+              Expanded(
+                flex: 4,
+                child: Row(
+                  children: [
+                    Container(
+                      width: MediaQuery.of(context).size.width * 0.65,
+                      padding: const EdgeInsets.only(top: 16.0, left: 20.0),
+                      child: Column(
+                        mainAxisAlignment: MainAxisAlignment.start,
+                        crossAxisAlignment: CrossAxisAlignment.start,
+                        mainAxisSize: MainAxisSize.min,
+                        children: [
+                          Expanded(
+                            child: RichText(
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              textAlign: TextAlign.center,
+                              text: TextSpan(
+                                text: eventCode,
+                                style: TextStyle(
+                                    color: AppColors.neutral.dark,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14.0),
+                                children: &lt;TextSpan&gt;[
+                                  TextSpan(
+                                    text: &#39; - &#39; + nameEvent,
+                                    style: TextStyle(
+                                        color: AppColors.neutral.dark,
+                                        fontWeight: FontWeight.w500,
+                                        fontSize: 14.0),
+                                  ),
+                                ],
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 2.0,
+                          ),
+                          Visibility(
+                            visible: nameResponsability.isNotEmpty ||
+                                eventState(status) != EventState.none,
+                            child: Row(
+                              mainAxisSize: MainAxisSize.min,
+                              children: [
+                                ChipStatus(
+                                  color: eventState(status).colorChip,
+                                  title: eventState(status).name,
+                                  showChip:
+                                      eventState(status) != EventState.none,
+                                ),
+                                Expanded(
+                                  child: Text(
+                                    nameResponsability,
+                                    maxLines: 1,
+                                    overflow: TextOverflow.ellipsis,
+                                    style: TextStyle(
+                                      fontWeight: FontWeight.w400,
+                                      color: AppColors.neutral.medium,
+                                      fontSize: 14.0,
+                                    ),
+                                  ),
+                                )
+                              ],
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 8.0,
+                          ),
+                          Row(
+                            children: [
+                              Expanded(
+                                child: Text(
+                                  nameField,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.neutral.darker,
+                                    fontSize: 14.0,
+                                  ),
+                                ),
+                              ),
+                              Expanded(
+                                child: Text(
+                                  &#39; ($areaField ha)&#39;,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    fontWeight: FontWeight.w400,
+                                    color: AppColors.neutral.darker,
+                                    fontSize: 14.0,
+                                  ),
+                                ),
+                              ),
+                            ],
+                          ),
+                          const SizedBox(
+                            height: 2.0,
+                          ),
+                          Expanded(
+                            child: Text(
+                              nameProperty,
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: TextStyle(
+                                color: AppColors.neutral.darker,
+                                fontWeight: FontWeight.w400,
+                                fontSize: 14.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 2.0,
+                          ),
+                          Visibility(
+                            visible: ownerProperty.isNotEmpty,
+                            child: Expanded(
+                              child: Text(ownerProperty,
+                                  overflow: TextOverflow.ellipsis,
+                                  maxLines: 1,
+                                  style: TextStyle(
+                                    color: AppColors.neutral.darker,
+                                    fontWeight: FontWeight.w400,
+                                    fontSize: 14.0,
+                                  )),
+                            ),
+                          ),
+                          const SizedBox(
+                            height: 2.0,
+                          ),
+                          Expanded(
+                            child: Text(
+                              nameCulture.toUpperCase(),
+                              overflow: TextOverflow.ellipsis,
+                              maxLines: 1,
+                              style: TextStyle(
+                                fontWeight: FontWeight.w400,
+                                color: AppColors.neutral.darker,
+                                fontSize: 12.0,
+                              ),
+                            ),
+                          ),
+                          const SizedBox(height: 4.0),
+                        ],
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+              Icon(Icons.arrow_forward_ios_rounded,
+                  size: 16.0, color: AppColors.neutral.medium),
+              const SizedBox(
+                width: 16.0,
+              )
+            ],
+          ),
+        ),
+      ),
+    ),
+  );
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../../index.html">agrotis_widget_lib</a></li>
+  <li><a href="../../widgets_cards_event_card/widgets_cards_event_card-library.html">event_card</a></li>
+  <li><a href="../../widgets_cards_event_card/EventCard-class.html">EventCard</a></li>
+  <li class="self-crumb">build method</li>
+</ol>
+
+
+    <h5>EventCard class</h5>
+    <ol>
+
+        <li class="section-title"><a href="../../widgets_cards_event_card/EventCard-class.html#constructors">Constructors</a></li>
+          <li><a href="../../widgets_cards_event_card/EventCard/EventCard.html">EventCard</a></li>
+
+
+    <li class="section-title">
+      <a href="../../widgets_cards_event_card/EventCard-class.html#instance-properties">Properties</a>
+    </li>
+    <li><a href="../../widgets_cards_event_card/EventCard/areaField.html">areaField</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/dateEvent.html">dateEvent</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/eventCode.html">eventCode</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/hasAudio.html">hasAudio</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/hashCode.html">hashCode</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/hasImage.html">hasImage</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/index.html">index</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/key.html">key</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/nameCulture.html">nameCulture</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/nameEvent.html">nameEvent</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/nameField.html">nameField</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/nameProperty.html">nameProperty</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/nameResponsability.html">nameResponsability</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/onTap.html">onTap</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/ownerProperty.html">ownerProperty</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/runtimeType.html">runtimeType</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/status.html">status</a></li>
+
+    <li class="section-title"><a href="../../widgets_cards_event_card/EventCard-class.html#instance-methods">Methods</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/build.html">build</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/StatelessWidget/createElement.html">createElement</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/debugDescribeChildren.html">debugDescribeChildren</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/debugFillProperties.html">debugFillProperties</a></li>
+    <li><a href="../../widgets_cards_event_card/EventCard/eventState.html">eventState</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/dart-core/Object/noSuchMethod.html">noSuchMethod</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toDiagnosticsNode.html">toDiagnosticsNode</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/Diagnosticable/toString.html">toString</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringDeep.html">toStringDeep</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/foundation/DiagnosticableTree/toStringShallow.html">toStringShallow</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/toStringShort.html">toStringShort</a></li>
+
+    <li class="section-title inherited"><a href="../../widgets_cards_event_card/EventCard-class.html#operators">Operators</a></li>
+    <li class="inherited"><a href="https://api.flutter.dev/flutter/widgets/Widget/operator_equals.html">operator ==</a></li>
+
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    agrotis_widget_lib
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../../static-assets/highlight.pack.js?v1"></script>
+<script src="../../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+

@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, height=device-height, initial-scale=1, user-scalable=no">
+  <meta name="description" content="API docs for the multiGenericModalWithInitValues function from the multi_generic_modal_with_values library, for the Dart programming language.">
+  <title>multiGenericModalWithInitValues function - multi_generic_modal_with_values library - Dart API</title>
+
+
+  
+  <link rel="preconnect" href="https://fonts.gstatic.com">
+  <link href="https://fonts.googleapis.com/css2?family=Roboto+Mono:ital,wght@0,300;0,400;0,500;0,700;1,400&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+  
+  <link rel="stylesheet" href="../static-assets/github.css?v1">
+  <link rel="stylesheet" href="../static-assets/styles.css?v1">
+  <link rel="icon" href="../static-assets/favicon.png?v1">
+
+  
+</head>
+
+
+<body data-base-href="../" data-using-base-href="false">
+
+<div id="overlay-under-drawer"></div>
+
+<header id="title">
+  <button id="sidenav-left-toggle" type="button">&nbsp;</button>
+  <ol class="breadcrumbs gt-separated dark hidden-xs">
+    <li><a href="../index.html">agrotis_widget_lib</a></li>
+    <li><a href="../widgets_select_Select_multi_generic_modal_with_values/widgets_select_Select_multi_generic_modal_with_values-library.html">multi_generic_modal_with_values</a></li>
+    <li class="self-crumb">multiGenericModalWithInitValues&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">C</span>&gt; function</li>
+  </ol>
+  <div class="self-name">multiGenericModalWithInitValues</div>
+  <form class="search navbar-right" role="search">
+    <input type="text" id="search-box" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<main>
+
+
+  <div id="dartdoc-main-content" class="main-content">
+      <div>
+<h1><span class="kind-function">multiGenericModalWithInitValues&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">C</span>&gt;</span> function 
+    <a href="https://dart.dev/null-safety" class="feature feature-null-safety" title="Supports the null safety language feature.">Null safety</a>
+ 
+</h1></div>
+
+    <section class="multi-line-signature">
+        
+
+<span class="returntype"><a href="https://api.flutter.dev/flutter/dart-async/Future-class.html">Future</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../packages_Either_either/Either-class.html">Either</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/bool-class.html">bool</a></span>, <span class="type-parameter"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>&gt;</span></span>&gt;</span></span>&gt;</span></span>
+<span class="name ">multiGenericModalWithInitValues</span>&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">C</span>&gt;(<wbr><ol class="parameter-list"><li><span class="parameter" id="multiGenericModalWithInitValues-param-context"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/widgets/BuildContext-class.html">BuildContext</a></span> <span class="parameter-name">context</span>, </span></li>
+<li><span class="parameter" id="multiGenericModalWithInitValues-param-list">{<span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../widgets_select_Select_multi_generic_modal_with_values/DefaultMultiGenericModal-class.html">DefaultMultiGenericModal</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">C</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">list</span>, </span></li>
+<li><span class="parameter" id="multiGenericModalWithInitValues-param-titleModal"><span>required</span> <span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/String-class.html">String</a></span> <span class="parameter-name">titleModal</span>, </span></li>
+<li><span class="parameter" id="multiGenericModalWithInitValues-param-initialItems"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/List-class.html">List</a><span class="signature">&lt;<wbr><span class="type-parameter"><a href="../widgets_select_Select_multi_generic_modal_with_values/DefaultMultiGenericModal-class.html">DefaultMultiGenericModal</a><span class="signature">&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">C</span>&gt;</span></span>&gt;</span></span> <span class="parameter-name">initialItems</span> = <span class="default-value">const []</span>, </span></li>
+<li><span class="parameter" id="multiGenericModalWithInitValues-param-maxValuesSelected"><span class="type-annotation"><a href="https://api.flutter.dev/flutter/dart-core/int-class.html">int</a>?</span> <span class="parameter-name">maxValuesSelected</span>}</span></li>
+</ol>)
+
+    </section>
+    
+
+
+    
+<section class="summary source-code" id="source">
+  <h2><span>Implementation</span></h2>
+  <pre class="language-dart"><code class="language-dart">Future&lt;Either&lt;bool, List&lt;T&gt;&gt;&gt; multiGenericModalWithInitValues&lt;T, C&gt;(
+  BuildContext context, {
+  required List&lt;DefaultMultiGenericModal&lt;T, C&gt;&gt; list,
+  required String titleModal,
+  List&lt;DefaultMultiGenericModal&lt;T, C&gt;&gt; initialItems = const [],
+  int? maxValuesSelected,
+}) async {
+  bool isSearching = false;
+  List&lt;DefaultMultiGenericModal&lt;T, C&gt;&gt; listFiltered = list;
+  TextEditingController searchText = TextEditingController();
+  bool confirmationButton = false;
+  List&lt;int&gt; indexOfItemsSelected = [];
+
+  for (var item in initialItems) {
+    for (var itemList in listFiltered) {
+      if (item.comparator == itemList.comparator) {
+        itemList.isSelected = true;
+        if (maxValuesSelected != null) {
+          indexOfItemsSelected.add(listFiltered.indexOf(itemList));
+        }
+      }
+    }
+  }
+
+  await showDialog&lt;void&gt;(
+    barrierColor: Colors.black.withOpacity(0.8),
+    context: context,
+    builder: (BuildContext context) {
+      if (maxValuesSelected != null &amp;&amp;
+          (initialItems.length &gt; maxValuesSelected)) {
+        return ErrorWidget(
+            &#39;maxValuesSelected != null &amp;&amp; initialItems.length &gt; maxValuesSelected &#39;);
+      }
+      return StatefulBuilder(
+        builder: (context, setState) {
+          void _filter() {
+            setState(() {
+              listFiltered = list
+                  .where((element) =&gt; element.title
+                      .toLowerCase()
+                      .contains(searchText.text.toLowerCase()))
+                  .toList();
+            });
+          }
+
+          void withoutLimitSelected(int index) {
+            setState(() {
+              listFiltered[index].isSelected = !listFiltered[index].isSelected;
+              indexOfItemsSelected.add(index);
+            });
+          }
+
+          void withLimitSelected(int index) {
+            int max = maxValuesSelected ?? 0;
+            setState(() {
+              if (listFiltered[index].isSelected) {
+                indexOfItemsSelected.remove(index);
+                listFiltered[index].isSelected = false;
+              } else if (!indexOfItemsSelected.contains(index)) {
+                indexOfItemsSelected.add(index);
+                listFiltered[index].isSelected = true;
+              }
+              if (indexOfItemsSelected.length &gt; max) {
+                listFiltered[indexOfItemsSelected[0]].isSelected = false;
+                indexOfItemsSelected.removeAt(0);
+              }
+            });
+          }
+
+          return Container(
+            margin: EdgeInsets.only(
+              bottom: AppSize.size(7, context),
+              top: AppSize.size(9, context),
+              left: AppSize.size(8, context),
+              right: AppSize.size(8, context),
+            ),
+            width: AppSize.width(context),
+            height: AppSize.height(context),
+            decoration: BoxDecoration(
+              borderRadius: BorderRadius.circular(5),
+              color: Colors.white,
+              boxShadow: const [
+                BoxShadow(color: Colors.white, spreadRadius: 5),
+              ],
+            ),
+            child: Scaffold(
+              backgroundColor: AppColors.neutral.white,
+              body: Column(
+                children: [
+                  Row(
+                    children: [
+                      Expanded(
+                        child: Row(
+                          children: [
+                            const SizedBox(width: 8),
+                            IconButton(
+                              icon: Icon(
+                                Icons.arrow_back_ios,
+                                size: AppSize.size(16, context),
+                                color: Colors.black87,
+                              ),
+                              onPressed: () =&gt; Navigator.pop(context),
+                            ),
+                            Visibility(
+                              visible: !isSearching,
+                              child: Text(
+                                titleModal,
+                                style: TextStyle(
+                                  fontSize: AppSize.size(16, context),
+                                  fontWeight: FontWeight.w500,
+                                  color: AppColors.neutral.darker,
+                                ),
+                              ),
+                            ),
+                            Visibility(
+                              visible: isSearching,
+                              child: Expanded(
+                                child: TextField(
+                                  controller: searchText,
+                                  onChanged: (text) =&gt; _filter(),
+                                  style: TextStyle(
+                                    fontSize: AppSize.size(16, context),
+                                    fontWeight: FontWeight.w500,
+                                    color: AppColors.neutral.darker,
+                                  ),
+                                  autofocus: true,
+                                  decoration: InputDecoration(
+                                    hintText: &quot;Pesquisar&quot;,
+                                    hintStyle: TextStyle(
+                                      fontSize: AppSize.size(16, context),
+                                      fontWeight: FontWeight.w500,
+                                      color: AppColors.neutral.darker,
+                                    ),
+                                    border: InputBorder.none,
+                                  ),
+                                ),
+                              ),
+                            ),
+                          ],
+                        ),
+                      ),
+                      Visibility(
+                        visible: isSearching,
+                        child: IconButton(
+                          onPressed: () {
+                            setState(() {
+                              isSearching = !isSearching;
+                              searchText.text = &quot;&quot;;
+                              _filter();
+                            });
+                          },
+                          icon: const Icon(Icons.close),
+                          color: AppColors.neutral.mediumDark,
+                        ),
+                      ),
+                      IconButton(
+                        onPressed: () {
+                          setState(() {
+                            isSearching = !isSearching;
+                          });
+                        },
+                        icon: const Icon(Icons.search),
+                        color: AppColors.neutral.mediumDark,
+                      ),
+                    ],
+                  ),
+                  Expanded(
+                    child: Visibility(
+                      visible: listFiltered.isNotEmpty,
+                      child: ListView.builder(
+                        physics: const BouncingScrollPhysics(),
+                        itemBuilder: (context, index) {
+                          return MultiModalItem(
+                            isSelected: listFiltered[index].isSelected,
+                            title: listFiltered[index].title,
+                            subtitle: listFiltered[index].subTitle,
+                            onTap: () =&gt; maxValuesSelected == null
+                                ? withoutLimitSelected(index)
+                                : withLimitSelected(index),
+                          );
+                        },
+                        itemCount: listFiltered.length,
+                      ),
+                    ),
+                  ),
+                  Container(
+                    margin:
+                        const EdgeInsets.only(bottom: 20, left: 16, right: 16),
+                    height: 50,
+                    child: ButtonWidget(
+                      animationDuration: 300,
+                      textButton: &#39;SELECIONAR&#39;,
+                      fontSize: (AppSize.width(context) &#47; 24),
+                      onPressed: () {
+                        confirmationButton = true;
+                        Navigator.of(context).pop();
+                      },
+                    ),
+                  ),
+                ],
+              ),
+            ),
+          );
+        },
+      );
+    },
+  );
+
+  if (confirmationButton) {
+    List&lt;DefaultMultiGenericModal&lt;T, C&gt;&gt; itemSelectedOfList =
+        listFiltered.where((element) =&gt; element.isSelected == true).toList();
+    return Right(itemSelectedOfList.map((e) =&gt; e.object).toList());
+  }
+  return const Left(false);
+}</code></pre>
+</section>
+
+
+  </div> <!-- /.main-content -->
+
+  <div id="dartdoc-sidebar-left" class="sidebar sidebar-offcanvas-left">
+    <header id="header-search-sidebar" class="hidden-l">
+  <form class="search-sidebar" role="search">
+    <input type="text" id="search-sidebar" autocomplete="off" disabled class="form-control typeahead" placeholder="Loading search...">
+  </form>
+</header>
+
+<ol class="breadcrumbs gt-separated dark hidden-l" id="sidebar-nav">
+  <li><a href="../index.html">agrotis_widget_lib</a></li>
+  <li><a href="../widgets_select_Select_multi_generic_modal_with_values/widgets_select_Select_multi_generic_modal_with_values-library.html">multi_generic_modal_with_values</a></li>
+  <li class="self-crumb">multiGenericModalWithInitValues&lt;<wbr><span class="type-parameter">T</span>, <span class="type-parameter">C</span>&gt; function</li>
+</ol>
+
+
+    <h5>multi_generic_modal_with_values library</h5>
+    <ol>
+  <li class="section-title"><a href="../widgets_select_Select_multi_generic_modal_with_values/widgets_select_Select_multi_generic_modal_with_values-library.html#classes">Classes</a></li>
+  <li><a href="../widgets_select_Select_multi_generic_modal_with_values/DefaultMultiGenericModal-class.html">DefaultMultiGenericModal</a></li>
+  <li><a href="../widgets_select_Select_multi_generic_modal_with_values/MultiModalItem-class.html">MultiModalItem</a></li>
+
+
+
+
+
+  <li class="section-title"><a href="../widgets_select_Select_multi_generic_modal_with_values/widgets_select_Select_multi_generic_modal_with_values-library.html#functions">Functions</a></li>
+  <li><a href="../widgets_select_Select_multi_generic_modal_with_values/multiGenericModalWithInitValues.html">multiGenericModalWithInitValues</a></li>
+
+
+
+</ol>
+
+  </div><!--/.sidebar-offcanvas-left-->
+
+  <div id="dartdoc-sidebar-right" class="sidebar sidebar-offcanvas-right">
+  </div><!--/.sidebar-offcanvas-->
+
+</main>
+
+<footer>
+  <span class="no-break">
+    agrotis_widget_lib
+      0.0.1
+  </span>
+
+  
+</footer>
+
+
+
+<script src="../static-assets/highlight.pack.js?v1"></script>
+<script src="../static-assets/docs.dart.js"></script>
+
+
+
+</body>
+
+</html>
+
